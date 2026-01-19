@@ -11,6 +11,7 @@ Data arrives from the music streaming platform into our S3 bucket on **Random In
 ## 2️⃣ Solution Architecture
 
 ![Solution Architecture](../Images/Lab2_1.png)
+![Solution Architecture](../Images/Lab2_2.png)
 
 ---
 
