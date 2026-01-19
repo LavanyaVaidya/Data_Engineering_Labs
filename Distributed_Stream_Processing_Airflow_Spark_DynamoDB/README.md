@@ -1,20 +1,16 @@
-# Project Name
+# ETL using Airflow, Spark and DynamoDB
 
 ## 1️⃣ Problem Description
 
-Briefly describe the problem your solution is addressing. Include the context, the pain points, and the objectives you aim to achieve.
+Data arrives from the music streaming platform into our S3 bucket on **Random Intervls**. Goal is to perform transformations on this data and make it avaialble to the downstream application as soon as possible. This is not a batch ETL as we are not aware that how frequently the files will arrive to our S3.
 
-**Example:**
 > The goal of this project is to build a scalable data pipeline that ingests real-time streaming data, processes it, and stores it in a queryable format. The pipeline should handle high throughput and be cost-efficient.
 
 ---
 
 ## 2️⃣ Solution Architecture
 
-![Solution Architecture](architecture.png)
-
-> Replace `architecture.png` with your actual diagram image file in the same folder.  
-> GitHub will render the image directly in the README.
+![Solution Architecture](../Images/Lab2_1.png)
 
 ---
 
@@ -36,24 +32,11 @@ Provide a textual explanation of the architecture diagram. Explain the **data fl
 
 ## 4️⃣ Services Used
 
-Provide a list of services, along with **their purpose in your solution**.
-
 | Service | Purpose |
 |---------|---------|
-| **AWS Kinesis** | Ingest streaming data from various sources in real-time |
-| **AWS Lambda** | Transform and process data on the fly |
+| **AWS Glue** | Python shell for Python workloads |
+| **AWS Glue** | Spark for big data processing |
 | **Amazon S3** | Store processed data in a data lake format |
-| **Amazon Redshift** | Query processed data efficiently for analytics |
+| **Amazon DynamoDb** | Managed NoSQL Database |
 | **AWS CloudWatch** | Monitor and log pipeline activity |
-| **Amazon MWAA** | Orchestrate workflows and manage dependencies between tasks (if used) |
-
-> Add any other services relevant to your solution.
-
----
-
-## Optional Sections
-
-- **Setup Instructions** – how to deploy/run the solution
-- **Usage Examples** – sample queries, outputs, or API calls
-- **Contributing** – instructions for collaborators
-- **License** – licensing info if needed
+| **Amazon MWAA** | Orchestrate workflows and manage dependencies between tasks|
