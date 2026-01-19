@@ -1,10 +1,9 @@
-# Project Name
+# Batch Data Processing of the Music Streams using Airflow and Redshift
 
 ## 1️⃣ Problem Description
 
 A music straming platform collects the data from thousands of Users and store that into the S3 bucket on frequenct basis. We need to generate reports from this data and store them in such a way that we can unalbe analytics on the data.
 
-**Example:**
 > The goal of this project is to build a pipeline that reads data from the S3 buckets, so transformations on that and stores the data into the Redshift Serverless.
 > It will also Involve -
 > 1. Setting up MWAA environment to orchestrate our pipelines.
