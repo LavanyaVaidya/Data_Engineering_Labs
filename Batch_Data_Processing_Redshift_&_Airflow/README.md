@@ -2,33 +2,32 @@
 
 ## 1️⃣ Problem Description
 
-Briefly describe the problem your solution is addressing. Include the context, the pain points, and the objectives you aim to achieve.
+A music straming platform collects the data from thousands of Users and store that into the S3 bucket on frequenct basis. We need to generate reports from this data and store them in such a way that we can unalbe analytics on the data.
 
 **Example:**
-> The goal of this project is to build a scalable data pipeline that ingests real-time streaming data, processes it, and stores it in a queryable format. The pipeline should handle high throughput and be cost-efficient.
+> The goal of this project is to build a pipeline that reads data from the S3 buckets, so transformations on that and stores the data into the Redshift Serverless.
+> It will also Involve -
+> 1. Setting up MWAA environment to orchestrate our pipelines.
+> 2. Setting up Redshift Serverless Namespace and Workgroup so that data can be stored in it.
+> 3. Writing inbound and outbound rules to ensure security.
+> 4. Writing trust policies for the resources that follow Principle of Least Priviledge.
 
 ---
 
 ## 2️⃣ Solution Architecture
 
-![Solution Architecture](architecture.png)
-
-> Replace `architecture.png` with your actual diagram image file in the same folder.  
-> GitHub will render the image directly in the README.
+![Solution Architecture](../Images/Lab1_1.png)
 
 ---
 
 ## 3️⃣ Details About Solution Architecture
 
-Provide a textual explanation of the architecture diagram. Explain the **data flow**, **processing steps**, and any **key design decisions**.
-
-**Example:**
 1. **Data Ingestion**  
-   Data is ingested from multiple sources using AWS Kinesis Data Streams.
+   Data is ingested from the files placed in S3 on frequenct pre-defined intervals.
 2. **Data Processing**  
-   The raw data is processed using AWS Lambda functions for real-time transformations.
+   The raw data is processed using the Python transformations written in the Airflow DAG code.
 3. **Data Storage**  
-   Processed data is stored in Amazon S3 in Parquet format for analytics and in Amazon Redshift for querying.
+   Processed data is stored in Amazon Redshift for querying and analytics.
 4. **Monitoring & Logging**  
    AWS CloudWatch is used for monitoring the pipeline and logging errors.
 
@@ -40,20 +39,7 @@ Provide a list of services, along with **their purpose in your solution**.
 
 | Service | Purpose |
 |---------|---------|
-| **AWS Kinesis** | Ingest streaming data from various sources in real-time |
-| **AWS Lambda** | Transform and process data on the fly |
 | **Amazon S3** | Store processed data in a data lake format |
 | **Amazon Redshift** | Query processed data efficiently for analytics |
-| **AWS CloudWatch** | Monitor and log pipeline activity |
 | **Amazon MWAA** | Orchestrate workflows and manage dependencies between tasks (if used) |
 
-> Add any other services relevant to your solution.
-
----
-
-## Optional Sections
-
-- **Setup Instructions** – how to deploy/run the solution
-- **Usage Examples** – sample queries, outputs, or API calls
-- **Contributing** – instructions for collaborators
-- **License** – licensing info if needed
